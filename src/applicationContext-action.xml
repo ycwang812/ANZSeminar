@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    
+    <bean id="loginAction" class="tw.com.anz.seminar.action.LoginAction" singleton="false" 
+        name="/admin/adminLoginAction">
+         <property name="securityService" ref="securityService" />
+	</bean>
+	
+    <bean id="logoutAction" class="tw.com.anz.seminar.action.LogoutAction" singleton="false" 
+        name="/admin/adminLogoutAction">
+	</bean>
+    
+    <bean id="adminAction" class="tw.com.anz.seminar.action.AdminAction" singleton="false"
+        name="/admin/adminHomeAction, /admin/addAction, /admin/clearTopAction, /admin/saveEventAction,
+         /admin/updateAction, /admin/updateEventAction, /admin/queryEventAction, /admin/queryQuestionAction,
+         /admin/reloadQuestionAction, /admin/queryReportAction, /admin/deleteEventAction">
+        <property name="adminService" ref="adminService" />
+        <property name="account" value="${service.account.user}" />
+        <property name="legal" value="${legal}" />
+	</bean>
+	
+    <bean id="uploadAction" class="tw.com.anz.seminar.action.UploadAction" singleton="false"
+        name="/admin/uploadImageAction, /admin/uploadFileAction">
+	</bean>
+	
+    <bean id="downloadAction" class="tw.com.anz.seminar.action.DownloadAction" singleton="false"
+        name="/admin/downlaodReportAction, /admin/downlaodQuestionAction">
+        <property name="adminService" ref="adminService" />
+	</bean>
+	
+    <bean id="seminarAction" class="tw.com.anz.seminar.action.SeminarAction" singleton="false"
+        name="/seminar/homeAction, /seminar/watch, /seminar/loginAction, /seminar/queryYouTubeAction,
+         /seminar/saveQuestionAction, /seminar/reportAction, /export">
+         <property name="seminarService" ref="seminarService" />
+         <property name="securityService" ref="securityService" />
+         <property name="account" value="${service.account.user}" />
+    </bean>
+    
+    <bean id="calendarAction" class="tw.com.anz.seminar.action.CalendarAction" singleton="false" name="/calendar/embed">
+         <property name="calendarService" ref="calendarService" />
+	</bean>
+    
+</beans>

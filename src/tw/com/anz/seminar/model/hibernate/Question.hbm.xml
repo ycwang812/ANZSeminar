@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+	<class name="tw.com.anz.seminar.model.Question" table="Question" lazy="false">
+	    
+		<id name="id" column="ID" access="field">
+			<generator class="identity" />
+		</id>
+		
+		<property name="eId" type="long" column="E_ID" not-null="true" />
+		<property name="userId" type="string" column="USER_ID" not-null="true" />
+		<property name="time" type="timestamp" column="TIME" not-null="true" />
+		<property name="question" type="string" column="QUESTION" not-null="true" />
+		
+	</class>
+	
+</hibernate-mapping>

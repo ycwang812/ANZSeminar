@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+	<class name="tw.com.anz.seminar.model.Event" table="Event" lazy="false">
+	    
+		<id name="id" column="ID" access="field">
+			<generator class="identity" />
+		</id>
+		
+		<property name="eventId" type="string" column="EVENT_ID" not-null="true" />
+		<property name="eventUrl" type="string" column="EVENT_URL" />
+		<property name="summary" type="string" column="SUMMARY" />
+		<property name="location" type="string" column="LOCATION" />
+		<property name="startTime" type="timestamp" column="START_TIME" not-null="true" />
+		<property name="endTime" type="timestamp" column="END_TIME" not-null="true" />
+		<property name="timeZone" type="string" column="TIME_ZONE" not-null="true" />
+		<property name="introduction" type="string" column="INTRODUCTION" />
+		<property name="speaker" type="string" column="SPEAKER" />
+		<property name="legal" type="string" column="LEGAL" />
+		<property name="seminarKind" type="string" column="SEMINAR_KIND" not-null="true" />
+		<property name="youtubeUrl" type="string" column="YOUTUBE_URL" />
+		<property name="youtubeId" type="string" column="YOUTUBE_ID" />
+		<property name="privacyStatus" type="string" column="PRIVACY_STATUS" />
+		<property name="question" type="string" column="QUESTION" />
+		<property name="url" type="string" column="URL" />
+		<property name="uploadImage" type="string" column="UPLOAD_IMAGE" />
+		<property name="uploadFile" type="string" column="UPLOAD_FILE" />
+		<property name="duration" type="string" column="DURATION" />
+		<property name="headline" type="string" column="HEADLINE" />
+		<property name="top" type="string" column="LAYOUT_TOP" />
+		<property name="login" type="string" column="LOGIN" not-null="true" />
+		<property name="username" type="string" column="USER_NAME" not-null="true" />
+		<property name="createTime" type="timestamp" column="CREATE_TIME" not-null="true" />
+		<property name="updateTime" type="timestamp" column="UPDATE_TIME" />
+		
+	</class>
+	
+</hibernate-mapping>

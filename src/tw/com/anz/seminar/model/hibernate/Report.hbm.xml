@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+	<class name="tw.com.anz.seminar.model.Report" table="Report" lazy="false">
+	    
+		<id name="id" column="ID" access="field">
+			<generator class="assigned" />
+		</id>
+		
+		<property name="eId" type="long" column="E_ID" not-null="true" />
+		<property name="userId" type="string" column="USER_ID" not-null="true" />
+		<property name="openTime" type="timestamp" column="OPEN_TIME" not-null="true" />
+		<property name="watchTime" type="long" column="WATCH_TIME" not-null="true" />
+		
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    
+    <bean id="adminService" class="tw.com.anz.seminar.service.AdminServiceImpl">
+        <property name="googleApiService" ref="googleApiService" />
+        <property name="eventDao" ref="eventDao" />
+        <property name="reportDao" ref="reportDao" />
+        <property name="questionDao" ref="questionDao" />
+    </bean>
+    
+    <bean id="googleApiService" class="tw.com.anz.seminar.service.GoogleApiServiceImpl">
+        <property name="applicationName" value="${application.name}" />       
+        <property name="serviceAccountEmail" value="${service.account.email}" />
+        <property name="serviceAccountPrivateKey" value="${service.account.private.key}" />
+        <property name="serviceAccountUser" value="${service.account.user}" />
+    </bean>
+    
+    <bean id="seminarService" class="tw.com.anz.seminar.service.SeminarServiceImpl">
+        <property name="eventDao" ref="eventDao" />
+        <property name="reportDao" ref="reportDao" />
+        <property name="questionDao" ref="questionDao" />
+    </bean>
+    
+    <bean id="calendarService" class="tw.com.anz.seminar.service.CalendarServiceImpl">
+        <property name="account" value="${service.account.user}" />
+    </bean>
+    
+    <bean id="securityService" class="tw.com.anz.seminar.service.SecurityServiceImpl">
+        <property name="memberDao" ref="memberDao" />
+        <property name="userAccountDao" ref="userAccountDao" />
+    </bean>
+    
+    <bean id="fileUtil" class="tw.com.anz.seminar.util.FileUtil">
+        <property name="icsFileName" value="${ics.file.name}" />
+        <property name="imagePath" value="${image.path}" />
+        <property name="filePath" value="${file.path}" />
+    </bean>
+    
+    <bean id="urlUtil" class="tw.com.anz.seminar.util.UrlUtil">
+        <property name="seminarUrl" value="${seminar.url}" />
+    </bean>
+    
+</beans>

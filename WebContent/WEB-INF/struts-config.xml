@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans></form-beans>
+
+	<global-exceptions></global-exceptions>
+
+	<action-mappings>
+
+		<action path="/admin/adminLoginAction" type="tw.com.anz.seminar.action.LoginAction">
+		    <forward name="success" path="/admin/adminHomeAction.do" redirect="true" />
+			<forward name="fail" path="/admin/login.jsp" />
+		</action>
+		
+		<action path="/admin/adminLogoutAction" type="tw.com.anz.seminar.action.LogoutAction">
+			<forward name="success" path="/admin/login.jsp" redirect="true" />
+		</action>
+		
+		<action path="/admin/adminHomeAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="home">
+		    <forward name="success" path="/admin/home.jsp" />
+		</action>
+		
+		<action path="/admin/addAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="add">
+		    <forward name="success" path="/admin/event.jsp" />
+		</action>
+		
+		<action path="/admin/clearTopAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="clearTop">
+		</action>
+		
+		<action path="/admin/saveEventAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="save">
+		    <forward name="success" path="/admin/adminHomeAction.do" redirect="true" />
+		</action>
+		
+		<action path="/admin/updateAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="doUpdate">
+		    <forward name="success" path="/admin/event.jsp" />
+		    <forward name="fail" path="/admin/adminHomeAction.do" redirect="true" />
+		</action>
+		
+		<action path="/admin/updateEventAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="update">
+		    <forward name="success" path="/admin/adminHomeAction.do" redirect="true" />
+		</action>
+		
+		<action path="/admin/uploadImageAction" type="torg.springframework.web.struts.DelegatingActionProxy" parameter="image">
+		</action>
+		
+		<action path="/admin/uploadFileAction" type="torg.springframework.web.struts.DelegatingActionProxy" parameter="file">
+		</action>
+		
+		<action path="/admin/queryEventAction" type="torg.springframework.web.struts.DelegatingActionProxy" parameter="query">
+		     <forward name="success" path="/admin/detail.jsp" />
+		     <forward name="fail" path="/admin/adminHomeAction.do" redirect="true" />
+		</action>
+		
+		<action path="/admin/queryQuestionAction" type="torg.springframework.web.struts.DelegatingActionProxy" parameter="question">
+		     <forward name="success" path="/admin/question.jsp" />
+		     <forward name="fail" path="/admin/adminHomeAction.do" redirect="true" />
+		</action>
+		
+		<action path="/admin/reloadQuestionAction" type="torg.springframework.web.struts.DelegatingActionProxy" parameter="reloadQuestion">
+		</action>
+		
+		<action path="/admin/queryReportAction" type="torg.springframework.web.struts.DelegatingActionProxy" parameter="report">
+		     <forward name="success" path="/admin/report.jsp" />
+		     <forward name="fail" path="/admin/adminHomeAction.do" redirect="true" />
+		</action>
+		
+		<action path="/admin/deleteEventAction" type="torg.springframework.web.struts.DelegatingActionProxy" parameter="delete">
+		     <forward name="success" path="/admin/adminHomeAction.do" redirect="true" />
+		</action>
+		
+		<action path="/admin/downlaodReportAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="report">
+		</action>
+		
+		<action path="/admin/downlaodQuestionAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="question">
+		</action>
+		
+		<action path="/seminar/homeAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="home">
+		    <forward name="success" path="/seminar/home.jsp" />
+		</action>
+		
+		<action path="/seminar/watch" type="org.springframework.web.struts.DelegatingActionProxy" parameter="watch">
+		    <forward name="success" path="/seminar/view.jsp" />
+		    <forward name="login" path="/seminar/login.jsp" />
+		</action>
+		
+		<action path="/seminar/loginAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="login">
+		    <forward name="success" path="/seminar/view.jsp" />
+		    <forward name="login" path="/seminar/login.jsp" />
+		</action>
+		
+		<action path="/seminar/queryYouTubeAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="queryYouTube">
+		</action>
+		
+		<action path="/seminar/saveQuestionAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="saveQuestion">
+		</action>
+		
+		<action path="/seminar/reportAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="report">
+		</action>
+		
+		<action path="/export" type="org.springframework.web.struts.DelegatingActionProxy" parameter="export">
+		</action>
+		
+		<action path="/calendar/embed" type="tw.com.anz.seminar.action.CalendarAction">
+		</action>
+
+	</action-mappings>
+
+	<controller>
+		<set-property value="org.springframework.web.struts.DelegatingRequestProcessor" property="processorClass" />
+	</controller>
+
+	<message-resources parameter="MessageResources" />
+
+</struts-config>
+
